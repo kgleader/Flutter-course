@@ -1,5 +1,4 @@
 import 'mobile_developer.dart';
-import 'web_developer.dart';
 
 // import: bashka dart filedyn ichindegi kodtordu importtoit(al kodtordu bul fileda koldonuuga mumkunchuluk beret)
 // 'mobile_developer.dart' importtoluuchu fildyn jolu(path)

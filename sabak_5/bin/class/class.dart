@@ -23,5 +23,12 @@ void main(List<String> args) {
   w1.kodJaz();
 }
 
+class WebDeveloper {}
+
+WebDeveloper(
+    {required String name, required int jash, required String framework}) {}
+
+class MobileDeveloper {}
+
 MobileDeveloper(
     {required String name, required int jash, required String framework}) {}
