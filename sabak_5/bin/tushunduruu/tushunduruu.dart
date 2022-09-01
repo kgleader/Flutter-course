@@ -1,24 +1,19 @@
-import 'mobile_developer.dart';
-
-// import: bashka dart filedyn ichindegi kodtordu importtoit(al kodtordu bul fileda koldonuuga mumkunchuluk beret)
-// 'mobile_developer.dart' importtoluuchu fildyn jolu(path)
-
 void main(List<String> args) {
-  MobileDeveloper m1 = MobileDeveloper(
-    name: 'Altynbek',
-    jash: 34,
-    framework: 'Flutter',
-  );
+  // void vs String
+  // void => пустота
+  // String => Ozgorulmo tibi ('' ichindegi)
+  // int => Ozgorulmo tibi (butun san)
+  // double => Ozgorulmo tibi (bolchok ->irassionaldyk san)
+  // num => Ozgorulmo tibi (baardyk san)
+  // bool => Ozgorulmo tibi (true-false tuura-kata)
 
-  m1.taanysh();
-  m1.kodJaz();
-
-  WebDeveloper w1 = WebDeveloper(
-    name: 'Anna',
-    jash: 28,
-    framework: 'Angular',
-  );
-
-  w1.taanysh();
-  w1.kodJaz();
+  String name = 'AlbinaEjey';
+  int jash = 32;
+  double ubaktysy = 2.5;
+  num baardykSan = 27;
+  num baardykSan1 = 23.3;
+  bool ishtepJataby = true;
+  bool okudubu = false;
 }
+
+void voidBergenFuncsia() {}

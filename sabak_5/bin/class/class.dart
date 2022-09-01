@@ -1,3 +1,4 @@
+import 'mobile_developer.dart';
 import 'web_developer.dart';
 
 // import: bashka dart filedyn ichindegi kodtordu importtoit(al kodtordu bul fileda koldonuuga mumkunchuluk beret)
@@ -22,13 +23,3 @@ void main(List<String> args) {
   w1.taanysh();
   w1.kodJaz();
 }
-
-class WebDeveloper {}
-
-WebDeveloper(
-    {required String name, required int jash, required String framework}) {}
-
-class MobileDeveloper {}
-
-MobileDeveloper(
-    {required String name, required int jash, required String framework}) {}
