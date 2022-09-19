@@ -34,7 +34,7 @@ class LoginPage extends StatelessWidget {
                     radius: 35,
                     backgroundColor: Colors.amber,
                     backgroundImage:
-                        AssetImage('assets/images/akmatova_meerim.jpg'),
+                        AssetImage('assets/images/turat_alybaev.jpg'),
                     // child: Image.asset(
                     //   'assets/images/turat_alybaev.jpg',
                     //   width: 80,
@@ -47,7 +47,7 @@ class LoginPage extends StatelessWidget {
                       color: Colors.cyan,
                       borderRadius: BorderRadius.circular(20),
                       image: const DecorationImage(
-                        image: AssetImage('assets/images/akmatova_meerim.jpg'),
+                        image: AssetImage('assets/images/turat_alybaev.jpg'),
                       ),
                     ),
                     child: const SizedBox(
@@ -55,11 +55,20 @@ class LoginPage extends StatelessWidget {
                       width: 70,
                     ),
                   ),
+                  const SizedBox(width: 30),
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(50),
+                    child: Image.asset(
+                      'assets/images/turat_alybaev.jpg',
+                      width: 70,
+                      height: 70,
+                    ),
+                  )
                 ],
               ),
               const SizedBox(height: 10),
               Text(
-                'Meerim Akmatova',
+                'Turat Alybaev',
                 style: GoogleFonts.pacifico(color: Colors.white, fontSize: 40),
               ),
               Text(
@@ -83,7 +92,7 @@ class LoginPage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: TextFormField(
-                    initialValue: '+996 774 816 888',
+                    initialValue: '+996 557 106 446',
                     style: const TextStyle(
                       color: Color.fromARGB(255, 6, 102, 80),
                       fontSize: 20,
@@ -108,7 +117,7 @@ class LoginPage extends StatelessWidget {
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: TextFormField(
-                    initialValue: 'kgleader@gmail.com',
+                    initialValue: 'alybaevturat@gmail.com',
                     style: const TextStyle(
                       color: Color.fromARGB(255, 6, 102, 80),
                       fontSize: 20,

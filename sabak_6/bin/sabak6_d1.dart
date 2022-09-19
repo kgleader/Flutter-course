@@ -1,6 +1,3 @@
-// ignore: depend_on_referenced_packages
-import 'package:sabak6_d1/sabak6_d1.dart' as sabak6_d1;
-
 void main(List<String> arguments) {
   var result = ayt();
   result++; // (result++;) === (result = result+1;)
