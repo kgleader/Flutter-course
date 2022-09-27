@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import '../models/continent.dart';
 
@@ -15,10 +16,10 @@ class ContinentCard extends StatelessWidget {
     return Card(
       child: Column(
         children: [
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
           Text(
             cont.name,
-            style: const TextStyle(fontSize: 22),
+            style: const TextStyle(fontSize: 17),
           ),
           Expanded(
             child: Padding(
@@ -33,8 +34,4 @@ class ContinentCard extends StatelessWidget {
       ),
     );
   }
-}
-
-class SvgPicture {
-  static asset(String s, {required Color color}) {}
 }

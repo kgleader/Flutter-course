@@ -40,12 +40,12 @@ class MyHomePage extends StatelessWidget {
           const Divider(
             height: 2,
             color: Colors.black,
-            indent: 30,
-            endIndent: 30,
+            indent: 20,
+            endIndent: 20,
           ),
           Expanded(
             child: GridView.builder(
-              padding: const EdgeInsets.all(14),
+              padding: const EdgeInsets.all(8),
               itemCount: continents.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
