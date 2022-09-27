@@ -45,13 +45,21 @@ class MyHomePage extends StatelessWidget {
           ),
           Expanded(
             child: GridView.builder(
-              padding: const EdgeInsets.all(8),
+              padding: const EdgeInsets.all(12),
               itemCount: continents.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
               ),
               itemBuilder: (context, index) {
-                return ContinentCard(cont: continents[index]);
+                return Expanded(
+                  child: InkWell(
+                    onTap: () {},
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ContinentCard(cont: continents[index]),
+                    ),
+                  ),
+                );
               },
             ),
           )
