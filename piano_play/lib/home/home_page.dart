@@ -45,6 +45,7 @@ class _HomePageState extends State<HomePage> {
                         PianoWhiteButton('Re'),
                         PianoWhiteButton('Mi'),
                         PianoWhiteButton('Fa'),
+                        PianoWhiteButton('Sol'),
                         PianoWhiteButton('Lya'),
                         PianoWhiteButton('Si'),
                         PianoWhiteButton('Do2'),
@@ -62,8 +63,8 @@ class _HomePageState extends State<HomePage> {
                           PianoBlackButton('Re'),
                           PianoBlackButton('Mi'),
                           PianoBlackButton('Fa'),
+                          PianoBlackButton('Sol'),
                           PianoBlackButton('Lya'),
-                          PianoBlackButton('Si'),
                         ],
                       ),
                     )
