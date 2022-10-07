@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           const Expanded(
-            flex: 1,
+            flex: 0,
             child: Center(
               child: Text('do re mi fa...'),
             ),
@@ -61,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                           PianoBlackButton('Do'),
                           PianoBlackButton('Re'),
                           PianoBlackButton('Mi'),
-                          PianoBlackButton('Fa', visible: false),
+                          PianoBlackButton('Fa'),
                           PianoBlackButton('Lya'),
                           PianoBlackButton('Si'),
                         ],
