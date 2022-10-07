@@ -25,17 +25,21 @@ class PianoWhiteButton extends StatelessWidget {
             ),
           ),
           onPressed: () async {
-            await AudioPlayer().play(AssetSource('$nota.wav'));
+            await AudioPlayer().play(
+              AssetSource('$nota.mp3'),
+            );
           },
           onLongPress: () async {
-            await AudioPlayer().play(AssetSource('$nota.wav'));
+            await AudioPlayer().play(
+              AssetSource('$nota.mp3'),
+            );
           },
           child: const Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: EdgeInsets.only(bottom: 20),
               child: Text(
-                'f3',
+                'f2',
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 20,

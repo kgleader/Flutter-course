@@ -31,10 +31,10 @@ class PianoBlackButton extends StatelessWidget {
               ),
             ),
             onPressed: () async {
-              await AudioPlayer().play(AssetSource('$nota.wav'));
+              await AudioPlayer().play(AssetSource('$nota.mp3'));
             },
             onLongPress: () async {
-              await AudioPlayer().play(AssetSource('$nota.wav'));
+              await AudioPlayer().play(AssetSource('$nota.mp3'));
             },
             child: const Align(
               alignment: Alignment.bottomCenter,

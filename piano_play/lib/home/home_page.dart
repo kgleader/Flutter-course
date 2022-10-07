@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:piano_play/components/piano_black_button.dart';
 import 'package:piano_play/components/piano_button.dart';
-
-import '../components/piano_black_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -42,13 +41,13 @@ class _HomePageState extends State<HomePage> {
                     Row(
                       mainAxisSize: MainAxisSize.min,
                       children: const [
-                        PianoWhiteButton('do'),
-                        PianoWhiteButton('re'),
-                        PianoWhiteButton('mi'),
-                        PianoWhiteButton('fa'),
-                        PianoWhiteButton('lya'),
-                        PianoWhiteButton('si'),
-                        PianoWhiteButton('do2'),
+                        PianoWhiteButton('Do'),
+                        PianoWhiteButton('Re'),
+                        PianoWhiteButton('Mi'),
+                        PianoWhiteButton('Fa'),
+                        PianoWhiteButton('Lya'),
+                        PianoWhiteButton('Si'),
+                        PianoWhiteButton('Do2'),
                       ],
                     ),
                     // Positioned: child widgetinin posissiasyn berebiz
@@ -59,12 +58,12 @@ class _HomePageState extends State<HomePage> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: const [
-                          PianoBlackButton('do'),
-                          PianoBlackButton('re'),
-                          PianoBlackButton('mi'),
-                          PianoBlackButton('fa', visible: false),
-                          PianoBlackButton('lya'),
-                          PianoBlackButton('si'),
+                          PianoBlackButton('Do'),
+                          PianoBlackButton('Re'),
+                          PianoBlackButton('Mi'),
+                          PianoBlackButton('Fa', visible: false),
+                          PianoBlackButton('Lya'),
+                          PianoBlackButton('Si'),
                         ],
                       ),
                     )
