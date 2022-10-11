@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 TextStyle titleFont =
     const TextStyle(fontWeight: FontWeight.w600, fontSize: 18.0);
@@ -22,12 +23,12 @@ Widget additionalInformation(
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   "Wind",
                   style: titleFont,
                 ),
-                SizedBox(height: 18.0),
+                const SizedBox(height: 18.0),
                 Text(
                   "Pressure",
                   style: titleFont,
@@ -37,7 +38,7 @@ Widget additionalInformation(
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   '$wind',
                   style: infoFont,
@@ -52,12 +53,12 @@ Widget additionalInformation(
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   "Humidity",
                   style: titleFont,
                 ),
-                SizedBox(height: 18.0),
+                const SizedBox(height: 18.0),
                 Text(
                   "Feels like",
                   style: titleFont,
@@ -67,12 +68,12 @@ Widget additionalInformation(
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
+              children: [
                 Text(
                   "$humidity",
                   style: infoFont,
                 ),
-                SizedBox(height: 18.0),
+                const SizedBox(height: 18.0),
                 Text(
                   "$feelsLike",
                   style: infoFont,

@@ -20,7 +20,7 @@ Widget currentWeather(IconData icon, String temp, String location) {
               fontSize: 46.0,
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Text(
             "$location",
             style: TextStyle(
