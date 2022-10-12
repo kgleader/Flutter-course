@@ -27,11 +27,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // функцияны init кылыш учун биз API ни чакырабыз
   WeatherApiClient client = WeatherApiClient();
-
   Weather? data;
 
   Future<void> getData() async {
+    // бул жерде тырмакчанын ичиндеги шаарды озгортуп корсок болот
     data = await client.getCurrentWeather("Georgia");
   }
 
@@ -62,10 +63,10 @@ class _HomePageState extends State<HomePage> {
                 children: [
                   currentWeather(Icons.wb_sunny_rounded, "${data!.temp}°",
                       "${data!.cityName}"),
-                  SizedBox(
+                  const SizedBox(
                     height: 60.0,
                   ),
-                  Text(
+                  const Text(
                     "Additional information",
                     style: TextStyle(
                       fontSize: 24.0,
@@ -73,19 +74,26 @@ class _HomePageState extends State<HomePage> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Divider(),
-                  SizedBox(
+                  const Divider(),
+                  const SizedBox(
                     height: 20.0,
                   ),
+                  // азыр кошумча маалмыт камтыган виджет кошобуз
                   additionalInformation("${data!.wind}", "${data!.humidity}",
                       "${data!.pressure}", "${data!.feels_like}"),
+                    // эми бизде UI даяр болду
+                    // API ни интеграция кылабыз
+                    // А дегенде модердерди куруп алалы
                 ],
               );
-            } else if (snapshop.connectionState == ConnectionState.waiting) {
+            } else if (snapshop.connectionState == ConnectionState.waiting){
             return Center(
               child: CircularProgressIndicator(),
-              ),
-),
-);
+              );
+           }
+           return Container(),
+  },
+       ));
   }
-  }
+}
+    

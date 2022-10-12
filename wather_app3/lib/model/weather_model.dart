@@ -2,7 +2,7 @@ class Weather {
   String? cityName;
   double? temp;
   double? wind;
-  int? humidity;
+  double? humidity;
   double? feels_like;
   int? pressure;
 
