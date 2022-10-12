@@ -1,7 +1,4 @@
 import 'dart:developer';
-
-import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'components/custom_icon_button.dart';
 import 'constants/api_const.dart';
 import 'constants/app_colors.dart';
@@ -17,22 +14,37 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Future<Weather?> fetchData() async {
+  Future<void> weatherLocation() async {
+    LocationPermission permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.always &&
+          permission == LocationPermission.whileInUse) {
+        await fetchData();
+      }
+    } else {
+      Position position = await Geolocator.getCurrentPosition();
+      await fetchData(
+          ApiConst.latLongaddres(position.latitude, position.longitude));
+    }
+  }
+
+  Future<Weather?>? fetchData([String? url]) async {
+    // await Future.delayed(const Duration(seconds: 3));
     final dio = Dio();
-    final res = await dio.get(ApiConst.address);
-    if (res.statusCode == 200) {
+    final response = await dio.get(url ?? ApiConst.address);
+    if (response.statusCode == 200) {
       final Weather weather = Weather(
-        id: res.data['weather'][0]['id'],
-        main: res.data['weather'][0]['main'],
-        description: res.data['weather'][0]['description'],
-        icon: res.data['weather'][0]['icon'],
-        city: res.data['name'],
-        temp: res.data["main"]['temp'],
-        country: res.data['sys']['country'],
+        id: response.data['weather'][0]['id'],
+        main: response.data['weather'][0]['main'],
+        description: response.data['weather'][0]['description'],
+        icon: response.data['weather'][0]['icon'],
+        city: response.data['name'],
+        temp: response.data["main"]['temp'],
+        country: response.data['sys']['country'],
       );
       return weather;
     }
-    return null;
   }
 
   @override
@@ -45,60 +57,99 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: AppColors.white,
         title: const Text(AppText.appBarTitle, style: AppTextStyle.appBar),
       ),
-      body: Container(
-        width: double.infinity,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage('assets/weather.jpg'),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Column(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                CustomIconButton(icon: Icons.near_me),
-                CustomIconButton(icon: Icons.location_city),
-              ],
-            ),
-            Row(
-              children: [
-                const SizedBox(width: 20),
-                const Text('8', style: AppTextStyle.body1),
-                Image.network(
-                  ApiConst.getIcon('11n', 4),
-                  height: 160,
-                  fit: BoxFit.fitHeight,
-                ),
-              ],
-            ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    "You'll need and kurs".replaceAll(' ', '\n'),
-                    textAlign: TextAlign.right,
-                    style: AppTextStyle.body2((70)),
+      body: FutureBuilder<Weather?>(
+        future: fetchData(),
+        builder: (context, joop) {
+          if (joop.connectionState == ConnectionState.waiting) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (joop.connectionState == ConnectionState.none) {
+            return const Text('Internet bailanyshynda kata bar');
+          } else if (joop.connectionState == ConnectionState.done) {
+            if (joop.hasError) {
+              return Text('${joop.error}');
+            } else if (joop.hasData) {
+              final weather = joop.data!;
+              return Container(
+                width: double.infinity,
+                decoration: const BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage('assets/weather.jpg'),
+                    fit: BoxFit.cover,
                   ),
-                  const SizedBox(width: 20),
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: const [
-                Text(
-                  "Bishkek",
-                  textAlign: TextAlign.right,
-                  style: AppTextStyle.body1,
                 ),
-                SizedBox(width: 10),
-              ],
-            ),
-          ],
-        ),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomIconButton(
+                          icon: Icons.near_me,
+                          onPressed: () async {
+                            await weatherLocation();
+                          },
+                        ),
+                        CustomIconButton(
+                          icon: Icons.location_city,
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const SizedBox(width: 20),
+                        Text('${(weather.temp - 273.15).floorToDouble()}',
+                            style: AppTextStyle.body1),
+                        Image.network(
+                          ApiConst.getIcon(weather.icon, 4),
+                          height: 160,
+                          fit: BoxFit.fitHeight,
+                        ),
+                      ],
+                    ),
+                    Expanded(
+                      flex: 5,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          FittedBox(
+                            child: Text(
+                              "You'll need and".replaceAll(' ', '\n'),
+                              // weather.description.replaceAll(' ', '\n'),
+                              textAlign: TextAlign.right,
+                              style: AppTextStyle.body2((90)),
+                            ),
+                          ),
+                          const SizedBox(width: 20),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      flex: 1,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          FittedBox(
+                            child: Text(
+                              weather.city,
+                              textAlign: TextAlign.right,
+                              style: AppTextStyle.body1,
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            } else {
+              return const Text(
+                  'Belgisiz kata boldu suranych kaira kiriniz...');
+            }
+          } else {
+            return const Text('Belgisiz kata boldu suranych kaira kiriniz...');
+          }
+        },
       ),
       // body: Center(
       //   child: FutureBuilder(
