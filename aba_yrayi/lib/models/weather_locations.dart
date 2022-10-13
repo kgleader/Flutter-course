@@ -24,7 +24,7 @@ class WeatherLocation {
 
 final locationList = [
   WeatherLocation(
-    city: 'Бишкек',
+    city: 'Bishkek',
     dateTime: '07:50 PM — Monday, 9 Окт 2022',
     temparature: '24\u2103',
     weatherType: 'Night',

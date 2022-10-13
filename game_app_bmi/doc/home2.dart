@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+// ignore: avoid_relative_lib_imports
 import '../lib/components/continent_card.dart';
 import '../lib/constants/app_color.dart';
 import '../lib/constants/app_text.dart';

@@ -78,12 +78,12 @@ class _HomePageState extends State<HomePage> {
                   const SizedBox(
                     height: 20.0,
                   ),
-                  // азыр кошумча маалмыт камтыган виджет кошобуз
+                  // азыр кошумча маалымыт камтыган виджет кошобуз
                   additionalInformation("${data!.wind}", "${data!.humidity}",
                       "${data!.pressure}", "${data!.feels_like}"),
                     // эми бизде UI даяр болду
                     // API ни интеграция кылабыз
-                    // А дегенде модердерди куруп алалы
+                    // А дегенде моделдерди куруп алалы
                 ],
               );
             } else if (snapshop.connectionState == ConnectionState.waiting){
