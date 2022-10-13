@@ -5,12 +5,12 @@ import 'app_colors.dart';
 class AppTextStyle {
   static const appBar = TextStyle(
     color: AppColors.black,
-    fontSize: 28,
+    fontSize: 20,
   );
 
   static const body1 = TextStyle(
     color: AppColors.white,
-    fontSize: 96,
+    fontSize: 50,
   );
 
   static TextStyle body2(double size) => TextStyle(

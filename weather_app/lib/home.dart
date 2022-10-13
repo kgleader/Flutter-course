@@ -17,14 +17,14 @@ import 'constants/app_text_style.dart';
 import 'models/weather.dart';
 
 const List cities = <String>[
-  'bishkek',
-  'osh',
-  'jalal-abad',
-  'karakol',
-  'batken',
-  'naryn',
-  'talas',
-  'tokmok',
+  'Bishkek',
+  'Osh',
+  'ZHalal-Abad',
+  'Karakol',
+  'Batken',
+  'Naryn',
+  'Talas',
+  'Tokmok',
 ];
 
 class HomePage extends StatefulWidget {
@@ -153,7 +153,7 @@ class _HomePageState extends State<HomePage> {
                           style: AppTextStyle.body1),
                       Image.network(
                         ApiConst.getIcon(weather!.icon, 4),
-                        height: 160,
+                        height: 90,
                         fit: BoxFit.fitHeight,
                       ),
                     ],
@@ -168,10 +168,10 @@ class _HomePageState extends State<HomePage> {
                             // "You'll need and".replaceAll(' ', '\n'),
                             weather!.description.replaceAll(' ', '\n'),
                             textAlign: TextAlign.right,
-                            style: AppTextStyle.body2((90)),
+                            style: AppTextStyle.body2((60)),
                           ),
                         ),
-                        const SizedBox(width: 20),
+                        const SizedBox(width: 40),
                       ],
                     ),
                   ),
