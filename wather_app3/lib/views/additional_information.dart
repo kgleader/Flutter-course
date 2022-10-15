@@ -40,10 +40,10 @@ Widget additionalInformation(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '$wind',
+                  "$wind",
                   style: infoFont,
                 ),
-                SizedBox(height: 18.0),
+                const SizedBox(height: 18.0),
                 Text(
                   "$pressure",
                   style: infoFont,
