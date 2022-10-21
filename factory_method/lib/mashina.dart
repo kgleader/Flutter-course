@@ -1,13 +1,18 @@
 class Mashina {
-  final String marka;
-  final int jyl;
-  final String nomer;
-
   const Mashina({
     required this.marka,
     required this.jyl,
     required this.nomer,
   });
+
+  final String marka;
+  final int jyl;
+  final String nomer;
+
+  factory Mashina.fromJson(Map<String, dynamic> syryo) {
+    return Mashina(
+        marka: syryo["marka"], jyl: syryo["nomer"], nomer: syryo["nomer"]);
+  }
 }
 
 Map response = {
@@ -31,6 +36,9 @@ void main(List<String> args) {
     jyl: response["cars"][1]["lyl"],
     nomer: response["cars"][1]["nomer"],
   );
+
+  final mers3 = Mashina.fromJson(response["cars"][2]);
   print(mers1.nomer);
   print(mers2.nomer);
+  print(mers3.nomer);
 }
