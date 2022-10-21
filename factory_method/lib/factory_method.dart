@@ -1,5 +1,5 @@
 void main(List<String> args) {
-  final d1 = const Dog('reks');
+  const d1 = Dog('reks');
   print(d1.name);
   final d2 = Dog.dogTuz('Alabay');
   print(d2.name);
